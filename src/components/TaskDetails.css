@@ -544,4 +544,51 @@
     color: #8E8EA0;
     font-size: 0.8rem;
 }
+
+.location-with-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 8px 0;
+}
+
+.location-with-nav span {
+    font-size: 0.95rem;
+    color: #E2E2E6;
+}
+
+.navigation-button {
+    background: rgba(120, 120, 255, 0.1);
+    border: 1px solid rgba(120, 120, 255, 0.2);
+    border-radius: 12px;
+    padding: 8px;
+    cursor: pointer;
+    color: #7878FF;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    height: 48px;
+}
+
+.navigation-button:hover {
+    background: rgba(120, 120, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(120, 120, 255, 0.1);
+}
+
+.navigation-button:active {
+    transform: translateY(0);
+}
+
+.navigation-button svg {
+    transition: all 0.2s ease;
+}
+
+.navigation-button:hover svg {
+    transform: scale(1.1);
+}
  

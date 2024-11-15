@@ -22,7 +22,7 @@
 .tasks-list {
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 2px;
     max-height: calc(100vh - 500px);
     overflow-y: auto;
     background: #1E1E2E;
@@ -30,91 +30,110 @@
 }
 
 .task-card {
+    display: flex;
+    gap: 12px;
     background: #23233A;
     border-radius: 12px;
     padding: 12px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
     cursor: pointer;
     transition: all 0.2s ease;
     border-left: 4px solid transparent;
 }
 
-.task-card:hover {
-    transform: translateY(-2px);
-    background: #2A2A3F;
-}
-
-.task-card.priority-high {
+.task-card.high {
     border-left-color: #FF5C5C;
 }
 
-.task-card.priority-medium {
+.task-card.medium {
     border-left-color: #FFBB33;
 }
 
-.task-card.priority-low {
+.task-card.low {
     border-left-color: #00C851;
+}
+
+.task-time-container {
+    min-width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
 }
 
 .task-time {
     font-size: 0.9rem;
     color: #7878FF;
     font-weight: 500;
-    min-width: 70px;
 }
 
-.task-main {
-    flex: 1;
-    text-align: left;
-    min-width: 0;
-}
-
-.task-main h3 {
-    color: #fff;
-    margin: 0 0 4px 0;
-    font-size: 1rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.task-main .client-name {
+.task-duration {
+    font-size: 0.75rem;
     color: #8E8EA0;
-    margin: 0;
+}
+
+.task-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.task-type-badge {
+    display: inline-block;
+    background: rgba(120, 120, 255, 0.1);
+    color: #7878FF;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+.task-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.task-client {
+    color: #E2E2E6;
+    font-size: 0.9rem;
+}
+
+.task-location {
+    color: #8E8EA0;
     font-size: 0.8rem;
 }
 
 .task-meta {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 4px;
-    min-width: 80px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
 }
 
-.status-badge {
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 0.7rem;
-    font-weight: 500;
-    white-space: nowrap;
+.notes-count {
+    font-size: 0.8rem;
+    color: #7878FF;
 }
 
-.status-badge.pending {
-    background: #2E2E48;
+.priority-indicator {
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.priority-indicator.high {
+    background: rgba(255, 92, 92, 0.1);
+    color: #FF5C5C;
+}
+
+.priority-indicator.medium {
+    background: rgba(255, 187, 51, 0.1);
     color: #FFBB33;
 }
 
-.status-badge.completed {
-    background: #2E2E48;
+.priority-indicator.low {
+    background: rgba(0, 200, 81, 0.1);
     color: #00C851;
-}
-
-.duration {
-    color: #8E8EA0;
-    font-size: 0.8rem;
 }
 
 .no-tasks-message {

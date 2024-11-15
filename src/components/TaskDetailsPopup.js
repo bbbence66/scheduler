@@ -27,146 +27,262 @@ const TaskDetailsPopup = ({ task, onClose, onEdit, onDelete, onCreate, isCreatin
 
   const renderEditForm = () => (
     <form onSubmit={handleSubmit} className="edit-form">
-      <div className="form-row">
+      <div className="form-section">
+        <h3>Basic Information</h3>
         <div className="form-group">
-          <label>Project Name:</label>
+          <label>Task Name:</label>
           <input
             type="text"
-            name="projectName"
-            value={editedTask.projectName}
+            name="taskName"
+            value={editedTask.taskName}
             onChange={handleInputChange}
             required
           />
         </div>
+        <div className="form-row">
+          <div className="form-group">
+            <label>Task Type:</label>
+            <select
+              name="taskType"
+              value={editedTask.taskType}
+              onChange={handleInputChange}
+              required
+            >
+              <option value="">Select Type</option>
+              <option value="Delivery">Delivery</option>
+              <option value="Installation">Installation</option>
+              <option value="Scoping">Scoping</option>
+              <option value="Maintenance">Maintenance</option>
+              <option value="Decommission">Decommission</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Project Name:</label>
+            <input
+              type="text"
+              name="projectName"
+              value={editedTask.projectName}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="form-section">
+        <h3>Client Information</h3>
+        <div className="form-row">
+          <div className="form-group">
+            <label>Client Company:</label>
+            <input
+              type="text"
+              name="clientCompany"
+              value={editedTask.clientCompany}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Contact Name:</label>
+            <input
+              type="text"
+              name="contactName"
+              value={editedTask.contactName}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group">
+            <label>Contact Email:</label>
+            <input
+              type="email"
+              name="contactEmail"
+              value={editedTask.contactEmail}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Contact Mobile:</label>
+            <input
+              type="tel"
+              name="contactMobile"
+              value={editedTask.contactMobile}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="form-section">
+        <h3>Order Details</h3>
+        <div className="form-row">
+          <div className="form-group">
+            <label>TLC Sales Order #:</label>
+            <input
+              type="text"
+              name="tlcSalesOrder"
+              value={editedTask.tlcSalesOrder}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Site Location:</label>
+            <input
+              type="text"
+              name="siteLocation"
+              value={editedTask.siteLocation}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="form-section">
+        <h3>Schedule</h3>
+        <div className="form-row">
+          <div className="form-group">
+            <label>Start Date:</label>
+            <input
+              type="date"
+              name="startDate"
+              value={editedTask.startDate}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>End Date:</label>
+            <input
+              type="date"
+              name="endDate"
+              value={editedTask.endDate}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group">
+            <label>Event Date:</label>
+            <input
+              type="date"
+              name="eventDate"
+              value={editedTask.eventDate}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Time:</label>
+            <input
+              type="time"
+              name="time"
+              value={editedTask.time}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="form-section">
+        <h3>Personnel</h3>
+        <div className="form-row">
+          <div className="form-group">
+            <label>Manager:</label>
+            <select
+              name="manager"
+              value={editedTask.manager}
+              onChange={handleInputChange}
+              required
+            >
+              <option value="">Select Manager</option>
+              <option value="Manager 1">Manager 1</option>
+              <option value="Manager 2">Manager 2</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Coordinator:</label>
+            <select
+              name="coordinator"
+              value={editedTask.coordinator}
+              onChange={handleInputChange}
+              required
+            >
+              <option value="">Select Coordinator</option>
+              <option value="Coordinator 1">Coordinator 1</option>
+              <option value="Coordinator 2">Coordinator 2</option>
+            </select>
+          </div>
+        </div>
         <div className="form-group">
-          <label>Client Name:</label>
+          <label>Installers #:</label>
           <input
-            type="text"
-            name="clientName"
-            value={editedTask.clientName}
+            type="number"
+            name="installersCount"
+            value={editedTask.installersCount}
             onChange={handleInputChange}
+            min="0"
             required
           />
         </div>
       </div>
 
-      <div className="form-row">
+      <div className="form-section">
+        <h3>Additional Information</h3>
         <div className="form-group">
-          <label>Contact Name:</label>
-          <input
-            type="text"
-            name="contactName"
-            value={editedTask.contactName}
+          <label>Details:</label>
+          <textarea
+            name="details"
+            value={editedTask.details}
             onChange={handleInputChange}
-            required
+            rows="4"
           />
         </div>
-        <div className="form-group">
-          <label>Contact Number:</label>
-          <input
-            type="tel"
-            name="contactNumber"
-            value={editedTask.contactNumber}
-            onChange={handleInputChange}
-            required
-          />
+        <div className="form-row">
+          <div className="form-group">
+            <label>Priority:</label>
+            <select
+              name="priority"
+              value={editedTask.priority}
+              onChange={handleInputChange}
+              required
+            >
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Status:</label>
+            <select
+              name="status"
+              value={editedTask.status}
+              onChange={handleInputChange}
+              required
+            >
+              <option value="pending">Pending</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
         </div>
-      </div>
-
-      <div className="form-group">
-        <label>Contact Email:</label>
-        <input
-          type="email"
-          name="contactEmail"
-          value={editedTask.contactEmail}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
-
-      <div className="form-row">
-        <div className="form-group">
-          <label>Date:</label>
-          <input
-            type="date"
-            name="date"
-            value={editedTask.date}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Time:</label>
-          <input
-            type="time"
-            name="time"
-            value={editedTask.time}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-      </div>
-
-      <div className="form-row">
-        <div className="form-group">
-          <label>Task Type:</label>
-          <select
-            name="taskType"
-            value={editedTask.taskType}
-            onChange={handleInputChange}
-            required
-          >
-            <option value="">Select Type</option>
-            <option value="Network Installation">Network Installation</option>
-            <option value="Security System">Security System</option>
-            <option value="WiFi Setup">WiFi Setup</option>
-            <option value="Server Maintenance">Server Maintenance</option>
-            <option value="Phone System">Phone System</option>
-            <option value="CCTV Installation">CCTV Installation</option>
-            <option value="Access Control">Access Control</option>
-            <option value="Fiber Optic Setup">Fiber Optic Setup</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label>Priority:</label>
-          <select
-            name="priority"
-            value={editedTask.priority}
-            onChange={handleInputChange}
-            required
-          >
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-        </div>
-      </div>
-
-      <div className="form-group">
-        <label>Location:</label>
-        <input
-          type="text"
-          name="location"
-          value={editedTask.location}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label>Estimated Duration:</label>
-        <input
-          type="text"
-          name="estimatedDuration"
-          value={editedTask.estimatedDuration}
-          onChange={handleInputChange}
-          required
-        />
       </div>
 
       <div className="form-actions">
-        <button type="submit" className="save-btn">Save Changes</button>
-        <button type="button" className="cancel-btn" onClick={() => setIsEditing(false)}>
+        <button type="submit" className="save-btn">
+          {isCreating ? 'Create Task' : 'Save Changes'}
+        </button>
+        <button 
+          type="button" 
+          className="cancel-btn"
+          onClick={() => setIsEditing(false)}
+        >
           Cancel
         </button>
       </div>
@@ -175,25 +291,50 @@ const TaskDetailsPopup = ({ task, onClose, onEdit, onDelete, onCreate, isCreatin
 
   const renderViewMode = () => (
     <>
-      <div className="status-section">
-        <div className={`status-badge ${task.priority}`}>
-          {task.priority}
+      <div className="task-header-section">
+        <h3 className="task-title">{task.taskName || task.projectName}</h3>
+        <div className="status-section">
+          <div className={`status-badge ${task.priority}`}>
+            {task.priority}
+          </div>
+          <div className={`status-badge ${task.status}`}>
+            {task.status}
+            {task.completedAt && (
+              <span className="completion-date">
+                {new Date(task.completedAt).toLocaleString()}
+              </span>
+            )}
+          </div>
+          <div className="popup-actions">
+            <button className="edit-btn" onClick={() => setIsEditing(true)}>
+              Edit
+            </button>
+            <button className="delete-btn" onClick={() => onDelete(task.id)}>
+              Delete
+            </button>
+          </div>
         </div>
-        <div className={`status-badge ${task.status}`}>
-          {task.status}
-          {task.completedAt && (
-            <span className="completion-date">
-              {new Date(task.completedAt).toLocaleString()}
-            </span>
-          )}
-        </div>
-        <div className="popup-actions">
-          <button className="edit-btn" onClick={() => setIsEditing(true)}>
-            Edit
-          </button>
-          <button className="delete-btn" onClick={() => onDelete(task.id)}>
-            Delete
-          </button>
+      </div>
+
+      <div className="detail-section">
+        <h3>Basic Information</h3>
+        <div className="detail-grid">
+          <div className="detail-item">
+            <label>Task Type:</label>
+            <span>{task.taskType}</span>
+          </div>
+          <div className="detail-item">
+            <label>Project Name:</label>
+            <span>{task.projectName}</span>
+          </div>
+          <div className="detail-item">
+            <label>TLC Sales Order #:</label>
+            <span>{task.tlcSalesOrder}</span>
+          </div>
+          <div className="detail-item">
+            <label>Installers Count:</label>
+            <span>{task.installersCount}</span>
+          </div>
         </div>
       </div>
 
@@ -201,90 +342,97 @@ const TaskDetailsPopup = ({ task, onClose, onEdit, onDelete, onCreate, isCreatin
         <h3>Client Information</h3>
         <div className="detail-grid">
           <div className="detail-item">
-            <label>Client Name:</label>
-            <span>{task.clientName}</span>
+            <label>Client Company:</label>
+            <span>{task.clientCompany}</span>
           </div>
           <div className="detail-item">
             <label>Contact Name:</label>
             <span>{task.contactName}</span>
           </div>
           <div className="detail-item">
-            <label>Contact Number:</label>
-            <span>{task.contactNumber}</span>
+            <label>Contact Email:</label>
+            <a href={`mailto:${task.contactEmail}`}>{task.contactEmail}</a>
           </div>
           <div className="detail-item">
-            <label>Contact Email:</label>
-            <span>{task.contactEmail}</span>
+            <label>Contact Mobile:</label>
+            <a href={`tel:${task.contactMobile}`}>{task.contactMobile}</a>
           </div>
         </div>
       </div>
 
       <div className="detail-section">
-        <h3>Task Details</h3>
+        <h3>Schedule</h3>
         <div className="detail-grid">
           <div className="detail-item">
-            <label>Date:</label>
-            <span>{task.date}</span>
+            <label>Start Date:</label>
+            <span>{new Date(task.startDate).toLocaleDateString()}</span>
+          </div>
+          <div className="detail-item">
+            <label>End Date:</label>
+            <span>{new Date(task.endDate).toLocaleDateString()}</span>
+          </div>
+          <div className="detail-item">
+            <label>Event Date:</label>
+            <span>{new Date(task.eventDate).toLocaleDateString()}</span>
           </div>
           <div className="detail-item">
             <label>Time:</label>
             <span>{task.time}</span>
           </div>
-          <div className="detail-item">
-            <label>Type:</label>
-            <span>{task.taskType}</span>
-          </div>
-          <div className="detail-item">
-            <label>Duration:</label>
-            <span>{task.estimatedDuration}</span>
-          </div>
+        </div>
+      </div>
+
+      <div className="detail-section">
+        <h3>Location</h3>
+        <div className="detail-grid">
           <div className="detail-item full-width">
-            <label>Location:</label>
-            <span>{task.location}</span>
+            <label>Site Location:</label>
+            <span>{task.siteLocation}</span>
           </div>
         </div>
       </div>
 
-      {/* Regular Notes Section */}
+      <div className="detail-section">
+        <h3>Personnel</h3>
+        <div className="detail-grid">
+          <div className="detail-item">
+            <label>Manager:</label>
+            <span>{task.manager}</span>
+          </div>
+          <div className="detail-item">
+            <label>Coordinator:</label>
+            <span>{task.coordinator}</span>
+          </div>
+        </div>
+      </div>
+
       {task.notes && (
         <div className="detail-section">
           <h3>Notes</h3>
-          <div className="notes-list">
-            {Array.isArray(task.notes) ? (
-              task.notes.map((note, index) => (
-                <div key={index} className="note-item">
-                  <p>{note.text}</p>
-                  <span className="note-timestamp">
-                    {new Date(note.timestamp).toLocaleString()}
-                  </span>
-                </div>
-              ))
-            ) : (
-              <div className="note-item">
-                <p>{task.notes}</p>
-              </div>
-            )}
+          <div className="notes-box">
+            {task.notes}
           </div>
         </div>
       )}
 
-      {/* Installer's Notes Section */}
       <div className="detail-section">
         <h3>Installer's Notes</h3>
-        {task.installerNotes && task.installerNotes.length > 0 ? (
-          <div className="notes-list">
-            {task.installerNotes.map((note, index) => (
+        <div className="notes-list">
+          {task.installerNotes && task.installerNotes.length > 0 ? (
+            task.installerNotes.map((note, index) => (
               <div key={index} className="note-item">
-                <p>{note.text}</p>
-                <span className="note-timestamp">
+                <div className="note-text">{note.text}</div>
+                <div className="note-timestamp">
                   {new Date(note.timestamp).toLocaleString()}
-                </span>
+                </div>
               </div>
-            ))}
-          </div>
-        ) : (
-          <p className="no-notes">No installer notes yet.</p>
-        )}
+            ))
+          ) : (
+            <div className="notes-box">
+              No installer notes yet
+            </div>
+          )}
+        </div>
       </div>
 
       {task.attachments && task.attachments.length > 0 && (
@@ -293,10 +441,15 @@ const TaskDetailsPopup = ({ task, onClose, onEdit, onDelete, onCreate, isCreatin
           <div className="attachments-grid">
             {task.attachments.map((attachment, index) => (
               <div key={index} className="attachment-item">
-                {attachment.type === 'image' && (
+                <div className="attachment-preview">
                   <img src={attachment.url} alt={attachment.name} />
-                )}
-                <span className="attachment-name">{attachment.name}</span>
+                </div>
+                <div className="attachment-info">
+                  <span className="attachment-name">{attachment.name}</span>
+                  <span className="attachment-time">
+                    {new Date(attachment.timestamp).toLocaleString()}
+                  </span>
+                </div>
               </div>
             ))}
           </div>

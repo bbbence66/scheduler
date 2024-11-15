@@ -68,6 +68,7 @@
 .status-section {
   display: flex;
   gap: 10px;
+  align-items: center;
   margin-bottom: 20px;
 }
 
@@ -271,4 +272,16 @@
 .completion-date {
   font-size: 0.75rem;
   opacity: 0.8;
-} 
+}
+
+.task-header-section {
+  margin-bottom: 20px;
+}
+
+.task-title {
+  font-size: 1.4rem;
+  color: #E2E2E6;
+  margin: 0 0 15px 0;
+  font-weight: 500;
+}
+ 

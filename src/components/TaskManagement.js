@@ -25,13 +25,43 @@ function TaskManagement() {
     loadTasks();
   }, []);
 
+  const handleCreateNew = () => {
+    const newTask = {
+      id: `TASK-${Date.now()}`,
+      taskName: '',
+      taskType: '',
+      projectName: '',
+      clientCompany: '',
+      contactName: '',
+      contactEmail: '',
+      contactMobile: '',
+      tlcSalesOrder: '',
+      siteLocation: '',
+      startDate: '',
+      endDate: '',
+      eventDate: '',
+      date: '',
+      time: '',
+      manager: '',
+      coordinator: '',
+      installersCount: 0,
+      details: '',
+      priority: 'medium',
+      status: 'pending',
+      notes: '',
+      installerNotes: [],
+      attachments: []
+    };
+    setSelectedTask(newTask);
+    setIsCreating(true);
+  };
+
   const handleEditFromPopup = async (editedTask) => {
     try {
       await taskService.updateTask(editedTask.id, editedTask);
       await loadTasks();
       setSuccessMessage('Task updated successfully!');
       setSelectedTask(null);
-      
       window.dispatchEvent(new Event('tasksUpdated'));
     } catch (error) {
       console.error('Error updating task:', error);
@@ -46,34 +76,12 @@ function TaskManagement() {
         await loadTasks();
         setSelectedTask(null);
         setSuccessMessage('Task deleted successfully!');
-        
         window.dispatchEvent(new Event('tasksUpdated'));
       } catch (error) {
         console.error('Error deleting task:', error);
         alert('Error deleting task: ' + error.message);
       }
     }
-  };
-
-  const handleCreateNew = () => {
-    const newTask = {
-      id: `TASK-${Date.now()}`,
-      projectName: '',
-      clientName: '',
-      contactName: '',
-      contactNumber: '',
-      contactEmail: '',
-      time: '',
-      priority: 'medium',
-      taskType: '',
-      location: '',
-      estimatedDuration: '',
-      notes: '',
-      date: '',
-      status: 'pending'
-    };
-    setSelectedTask(newTask);
-    setIsCreating(true);
   };
 
   const handleCreateFromPopup = async (newTask) => {
@@ -83,7 +91,6 @@ function TaskManagement() {
       setSuccessMessage('Task created successfully!');
       setSelectedTask(null);
       setIsCreating(false);
-      
       window.dispatchEvent(new Event('tasksUpdated'));
     } catch (error) {
       console.error('Error creating task:', error);
@@ -125,8 +132,9 @@ function TaskManagement() {
               className="task-item"
               onClick={() => setSelectedTask(task)}
             >
+              <h4 className="task-title">{task.taskName || task.projectName}</h4>
+              <div className="task-type-label">{task.taskType}</div>
               <div className="task-item-header">
-                <h4>{task.projectName}</h4>
                 <div className="task-badges">
                   <span className={`priority-badge ${task.priority}`}>
                     {task.priority}
@@ -141,8 +149,11 @@ function TaskManagement() {
                   </span>
                 </div>
               </div>
-              <p className="client-name">{task.clientName}</p>
-              <p className="task-datetime">{new Date(task.date).toLocaleDateString()} - {task.time}</p>
+              <p className="client-name">{task.clientCompany}</p>
+              <p className="task-datetime">
+                {new Date(task.startDate).toLocaleDateString()} - {task.time}
+              </p>
+              <p className="task-location">{task.siteLocation}</p>
               
               <div className="task-meta-info">
                 {task.installerNotes && task.installerNotes.length > 0 && (
