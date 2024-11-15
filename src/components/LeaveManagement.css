@@ -1,0 +1,205 @@
+.leave-management {
+    background: #1E1E2E;
+    border-radius: 20px;
+    border: 1px solid #2A2A3F;
+    padding: 15px;
+}
+
+.leave-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2A2A3F;
+}
+
+.leave-header h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.add-leave-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #7878FF;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.add-leave-button:hover {
+    transform: translateY(-1px);
+    background: #6565FF;
+}
+
+.leave-form {
+    background: #23233A;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    color: #8E8EA0;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 8px 10px;
+    background: #1E1E2E;
+    border: 1px solid #2A2A3F;
+    border-radius: 6px;
+    color: #E2E2E6;
+    font-size: 0.85rem;
+}
+
+.form-group textarea {
+    height: 60px;
+    resize: none;
+}
+
+.form-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.submit-leave,
+.cancel-leave {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.submit-leave {
+    background: #7878FF;
+    color: white;
+}
+
+.cancel-leave {
+    background: #2A2A3F;
+    color: #E2E2E6;
+}
+
+.leave-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.leave-list h4 {
+    color: #8E8EA0;
+    margin: 0 0 10px 0;
+    font-size: 0.85rem;
+    padding: 0 5px;
+}
+
+.leave-item {
+    background: #23233A;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 8px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+    align-items: center;
+}
+
+.leave-dates {
+    display: flex;
+    gap: 6px;
+    color: #7878FF;
+    font-size: 0.85rem;
+    align-items: center;
+}
+
+.leave-reason {
+    color: #E2E2E6;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.leave-status {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: #2A2A3F;
+}
+
+.leave-item.pending .leave-status {
+    color: #FFBB33;
+}
+
+.leave-item.approved .leave-status {
+    color: #00C851;
+}
+
+.leave-item.rejected .leave-status {
+    color: #FF4444;
+}
+
+.no-leaves {
+    text-align: center;
+    color: #8E8EA0;
+    padding: 15px;
+    font-size: 0.85rem;
+}
+
+/* Scrollbar styling */
+.leave-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.leave-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.leave-list::-webkit-scrollbar-thumb {
+    background: #2A2A3F;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .leave-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .leave-status {
+        justify-self: flex-start;
+    }
+} 

@@ -1,0 +1,143 @@
+.daily-tasks {
+    width: 100%;
+    max-width: 350px;
+    margin: 0;
+    padding: 0;
+    background: #1E1E2E;
+    border-radius: 20px;
+    border: 1px solid #2A2A3F;
+    overflow: hidden;
+}
+
+.daily-tasks h2 {
+    color: #fff;
+    margin: 0;
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 1.1rem;
+    background: #23233A;
+    border-bottom: 1px solid #2A2A3F;
+}
+
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    max-height: calc(100vh - 500px);
+    overflow-y: auto;
+    background: #1E1E2E;
+    padding: 10px;
+}
+
+.task-card {
+    background: #23233A;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    background: #2A2A3F;
+}
+
+.task-card.priority-high {
+    border-left-color: #FF5C5C;
+}
+
+.task-card.priority-medium {
+    border-left-color: #FFBB33;
+}
+
+.task-card.priority-low {
+    border-left-color: #00C851;
+}
+
+.task-time {
+    font-size: 0.9rem;
+    color: #7878FF;
+    font-weight: 500;
+    min-width: 70px;
+}
+
+.task-main {
+    flex: 1;
+    text-align: left;
+    min-width: 0;
+}
+
+.task-main h3 {
+    color: #fff;
+    margin: 0 0 4px 0;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.task-main .client-name {
+    color: #8E8EA0;
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.task-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    min-width: 80px;
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.status-badge.pending {
+    background: #2E2E48;
+    color: #FFBB33;
+}
+
+.status-badge.completed {
+    background: #2E2E48;
+    color: #00C851;
+}
+
+.duration {
+    color: #8E8EA0;
+    font-size: 0.8rem;
+}
+
+.no-tasks-message {
+    padding: 15px;
+    text-align: center;
+    color: #8E8EA0;
+    font-size: 0.9rem;
+}
+
+/* Scrollbar styling */
+.tasks-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tasks-list::-webkit-scrollbar-track {
+    background: #1E1E2E;
+}
+
+.tasks-list::-webkit-scrollbar-thumb {
+    background: #2A2A3F;
+    border-radius: 3px;
+}
+
+.tasks-list::-webkit-scrollbar-thumb:hover {
+    background: #3E3E58;
+} 
