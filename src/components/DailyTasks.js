@@ -2,9 +2,17 @@ import React from 'react';
 import './DailyTasks.css';
 
 const DailyTasks = ({ date, onTaskSelect, installerTasks }) => {
-    // Format the date to match our data structure
-    const dateKey = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    // Format the date to match db.json format: YYYY-MM-DD
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const dateKey = `${year}-${month}-${day}`;
+    
+    console.log('DailyTasks dateKey:', dateKey);
+    console.log('DailyTasks available tasks:', installerTasks);
+    
     const tasksForDay = installerTasks[dateKey] || [];
+    console.log('Tasks for this day:', tasksForDay);
 
     return (
         <div className="daily-tasks">

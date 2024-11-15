@@ -1,0 +1,274 @@
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+  padding: 40px 20px;
+  overflow-y: auto;
+}
+
+.popup-content {
+  background: rgba(30, 30, 46, 0.95);
+  border-radius: 24px;
+  border: 1px solid rgba(42, 42, 63, 0.5);
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  animation: slideIn 0.3s ease;
+  margin: auto;
+  overflow: visible;
+}
+
+#root {
+  position: relative;
+}
+
+.popup-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(42, 42, 63, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: rgba(30, 30, 46, 0.95);
+  border-radius: 24px 24px 0 0;
+}
+
+.popup-header h2 {
+  margin: 0;
+  color: #E2E2E6;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #8E8EA0;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0 8px;
+  transition: all 0.2s ease;
+}
+
+.close-button:hover {
+  color: #E2E2E6;
+}
+
+.popup-body {
+  padding: 20px;
+}
+
+.status-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.detail-section {
+  background: rgba(35, 35, 58, 0.5);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.detail-section h3 {
+  margin: 0 0 15px 0;
+  color: #E2E2E6;
+  font-size: 1.1rem;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.detail-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.detail-item label {
+  color: #8E8EA0;
+  font-size: 0.9rem;
+}
+
+.detail-item span {
+  color: #E2E2E6;
+}
+
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.note-item {
+  background: rgba(42, 42, 63, 0.3);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.note-item p {
+  margin: 0;
+  color: #E2E2E6;
+}
+
+.note-timestamp {
+  display: block;
+  font-size: 0.8rem;
+  color: #8E8EA0;
+  margin-top: 5px;
+}
+
+.attachments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.attachment-item {
+  background: rgba(42, 42, 63, 0.3);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.attachment-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.attachment-name {
+  display: block;
+  font-size: 0.8rem;
+  color: #8E8EA0;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .popup-overlay {
+    padding: 20px 10px;
+  }
+  
+  .popup-content {
+    width: 95%;
+  }
+}
+
+.popup-actions {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.edit-btn,
+.delete-btn,
+.save-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  background: rgba(120, 120, 255, 0.2);
+  color: #E2E2E6;
+  border: 1px solid rgba(120, 120, 255, 0.3);
+}
+
+.delete-btn {
+  background: rgba(255, 120, 120, 0.2);
+  color: #E2E2E6;
+  border: 1px solid rgba(255, 120, 120, 0.3);
+}
+
+.save-btn {
+  background: rgba(120, 255, 120, 0.2);
+  color: #78ff78;
+  border: 1px solid rgba(120, 255, 120, 0.3);
+}
+
+.edit-btn:hover,
+.delete-btn:hover,
+.save-btn:hover {
+  transform: translateY(-1px);
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.edit-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.edit-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.edit-form input,
+.edit-form select {
+  background: rgba(42, 42, 63, 0.8);
+  border: 1px solid rgba(42, 42, 63, 0.5);
+  color: #E2E2E6;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.edit-form input:focus,
+.edit-form select:focus {
+  border-color: rgba(120, 120, 255, 0.3);
+  outline: none;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.status-badge.completed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.completion-date {
+  font-size: 0.75rem;
+  opacity: 0.8;
+} 

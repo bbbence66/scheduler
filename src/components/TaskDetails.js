@@ -25,7 +25,7 @@ const TaskDetails = ({ task, onTaskComplete, onAddNote, onAddAttachment }) => {
     const handleNoteSubmit = (e) => {
         e.preventDefault();
         if (newNote.trim()) {
-            onAddNote(task.id, newNote.trim());
+            onAddNote(task.id, newNote.trim(), true);
             setNewNote('');
             setShowNoteInput(false);
         }
@@ -191,8 +191,30 @@ const TaskDetails = ({ task, onTaskComplete, onAddNote, onAddAttachment }) => {
                 </div>
             </div>
 
-            <div className="info-section">
-                <h3>Notes</h3>
+            {task.notes && (
+                <div className="detail-section">
+                    <h3>Notes</h3>
+                    <div className="notes-list">
+                        {Array.isArray(task.notes) ? (
+                            task.notes.map((note, index) => (
+                                <div key={index} className="note-item">
+                                    <div className="note-text">{note.text}</div>
+                                    <div className="note-timestamp">
+                                        {new Date(note.timestamp).toLocaleString()}
+                                    </div>
+                                </div>
+                            ))
+                        ) : (
+                            <div className="note-item">
+                                <div className="note-text">{task.notes}</div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
+
+            <div className="detail-section">
+                <h3>Installer's Notes</h3>
                 {showNoteInput && (
                     <form onSubmit={handleNoteSubmit} className="note-input-form">
                         <textarea
@@ -217,8 +239,8 @@ const TaskDetails = ({ task, onTaskComplete, onAddNote, onAddAttachment }) => {
                     </form>
                 )}
                 <div className="notes-list">
-                    {Array.isArray(task.notes) ? (
-                        task.notes.map((note, index) => (
+                    {Array.isArray(task.installerNotes) && task.installerNotes.length > 0 ? (
+                        task.installerNotes.map((note, index) => (
                             <div key={index} className="note-item">
                                 <div className="note-text">{note.text}</div>
                                 <div className="note-timestamp">
@@ -228,7 +250,7 @@ const TaskDetails = ({ task, onTaskComplete, onAddNote, onAddAttachment }) => {
                         ))
                     ) : (
                         <div className="notes-box">
-                            {task.notes || 'No notes added yet.'}
+                            No installer notes added yet.
                         </div>
                     )}
                 </div>

@@ -86,8 +86,12 @@ const Calendar = ({ onDateSelect, selectedDate: propSelectedDate, installerTasks
 
     const renderWeekView = () => {
         return currentWeek.map((date, index) => {
-            const dateString = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-            const dayTasks = installerTasks[dateString] || [];
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const dateKey = `${year}-${month}-${day}`;
+            
+            const dayTasks = installerTasks[dateKey] || [];
             const hasTasks = dayTasks.length > 0;
             const hasHighPriority = dayTasks.some(task => task.priority === 'high');
             
@@ -140,8 +144,12 @@ const Calendar = ({ onDateSelect, selectedDate: propSelectedDate, installerTasks
         
         for (let day = 1; day <= daysInMonth; day++) {
             const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
-            const dateString = `${date.getFullYear()}-${date.getMonth() + 1}-${day}`;
-            const dayTasks = installerTasks[dateString] || [];
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const dayStr = String(day).padStart(2, '0');
+            const dateKey = `${year}-${month}-${dayStr}`;
+            
+            const dayTasks = installerTasks[dateKey] || [];
             const hasTasks = dayTasks.length > 0;
             const hasHighPriority = dayTasks.some(task => task.priority === 'high');
             

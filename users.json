@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": "USER-1",
+      "username": "admin",
+      "password": "admin",
+      "userType": "admin",
+      "fullName": "Admin User",
+      "email": "admin@example.com",
+      "createdAt": "2024-11-15T10:00:00.000Z",
+      "confirmPassword": "admin",
+      "updatedAt": "2024-11-15T11:48:08.206Z"
+    },
+    {
+      "id": "USER-2",
+      "username": "installer1",
+      "password": "installer123",
+      "userType": "installer",
+      "fullName": "John Installer",
+      "email": "john@example.com",
+      "createdAt": "2024-11-15T10:00:00.000Z"
+    },
+    {
+      "id": "USER-3",
+      "username": "installer2",
+      "password": "installer123",
+      "userType": "installer",
+      "fullName": "Sarah Installer",
+      "email": "sarah@example.com",
+      "createdAt": "2024-11-15T10:00:00.000Z"
+    },
+    {
+      "id": "USER-1731671390900",
+      "username": "installer",
+      "password": "password",
+      "userType": "installer",
+      "fullName": "test",
+      "email": "test@test.hu",
+      "createdAt": "2024-11-15T11:50:12.247Z",
+      "confirmPassword": "password",
+      "updatedAt": "2024-11-15T11:53:22.920Z"
+    }
+  ]
+}
